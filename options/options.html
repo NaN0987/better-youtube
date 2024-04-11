@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="options.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options - Extension Name</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <p>Note: changes to these options will require you to reload Quora before they take effect.</p>
+        
+        <div class="optionContainer">
+            <div class="option">
+                <h1>Set website theme: </h1>
+                <select id="theme">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+
+            <div class="option">
+                <h1>Remove AI response</h1>
+                <label class="switch">
+                    <input type="checkbox" id="removeAIResponse">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="option">
+                <h1>Remove "Related Questions" boxes in feed</h1>
+                <label class="switch">
+                    <input type="checkbox" id="removeRelatedQuestionsBox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="option">
+                <h1>Redirect from the main signup page to the search page</h1>
+                <label class="switch">
+                    <input type="checkbox" id="redirectToSearchPage">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <button id="saveButton">Save</button>
+        
+    </div>
+    
+    <script src="options.js"></script>
+</body>
+</html>
