@@ -1,9 +1,9 @@
-console.log("extension is running")
+console.log("youtube extension is running")
 
 //querySelector constants
 //if the website changes and we have to chanage the queryselectors, these constants should make that easier
 
-
+qs_QueryExample = "html"
 
 //Remove query strings (?) and fragment identifier (#)
 //Returns string

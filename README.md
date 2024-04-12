@@ -1,7 +1,12 @@
-# Extension name
+# Better Youtube
 Brief description about extension
 
 ## Features
-- Feature 1
-- Feature 2
-- Feature 3
+- Ad blocker
+- Dark mode
+- Filter search
+- redirect shorts to video
+
+## Maybe features
+- "Download video" button
+- User-setable video speed

@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Extension Name",
-    "description": "Extension description.",
+    "name": "Better Youtube",
+    "description": "Improves the user experience of youtube. This extension blocks ads, removes unrelated videos from the search feed, and converts shorts to videos.",
     "version": "1.0.0",
     "icons": { 
       "16": "images/icon-16.png",
@@ -17,7 +17,7 @@
     "options_page": "options/options.html",
 
     "host_permissions": [
-      "<all_urls>"
+      "https://*.youtube.com/*"
     ],
 
     "permissions": [
@@ -26,7 +26,7 @@
 
     "content_scripts": [ {
       "js": ["scripts/content.js"],
-      "matches": ["<all_urls>"]
+      "matches": ["https://*.youtube.com/*"]
     } ],
 
     "background": {
