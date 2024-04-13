@@ -1,4 +1,4 @@
-console.log("youtube extension is running")
+console.log("youtube extension: main")
 
 //querySelector constants
 //if the website changes and we have to chanage the queryselectors, these constants should make that easier
