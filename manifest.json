@@ -26,12 +26,12 @@
 
     "content_scripts": [ {
       "js": ["scripts/contentMain.js"],
-      "matches": ["https://*.youtube.com/", "https://youtube.com/"],
+      "matches": ["https://*.youtube.com/"],
       "run_at": "document_end"
     } ,
     {
       "js": ["scripts/contentWatch.js"],
-      "matches": ["https://*.youtube.com/*", "https://youtube.com/*"],
+      "matches": ["https://*.youtube.com/watch"],
       "run_at": "document_end"
     }],
 
