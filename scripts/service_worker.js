@@ -5,6 +5,20 @@ const defaultSettings = {
   setting2: "bar"
 }
 
+function convertVideo(string){
+  // Extract the video ID from the URL
+  let videoId = string.split("/").pop();
+
+  // Construct the new URL string with the "watch?v=" format
+  let newUrl = "https://www.youtube.com/watch?v=" + videoId;
+
+  console.log(newUrl); 
+
+  chrome.tabs.update({url: newUrl});
+
+
+}
+
 async function setDefaultSettings(){
   //await chrome.storage.local.clear()
   const settings = await chrome.storage.local.get(null)
@@ -29,6 +43,8 @@ chrome.runtime.onInstalled.addListener(function(details){
   }
 })
 
+
+
 //Sleeping function for testing
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
@@ -37,4 +53,16 @@ function sleep(ms) {
 chrome.runtime.onMessage.addListener(function(message){
   console.log("message recieved!")
   
+  //"message.action" contains what the service worker should do
+  switch(message.action){
+    case "convertVideo":
+      convertVideo(message.details)
+      break
+
+    default:
+      console.warn("Unknown message: ", message.action)
+      break
+  }
+
 })
+

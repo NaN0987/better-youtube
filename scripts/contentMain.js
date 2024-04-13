@@ -1,4 +1,4 @@
-console.log("youtube extension: main")
+console.log("youtube extension is running")
 
 //querySelector constants
 //if the website changes and we have to chanage the queryselectors, these constants should make that easier
@@ -8,6 +8,9 @@ qs_QueryExample = "html"
 
 
 const observer = new MutationObserver(function() {
+  if (reformatURL(document.URL) !== "https://www.youtube.com/"){
+    observer.disconnect();
+  }
   console.log("hello")
   //advertisement?.remove()
     // Select the element
