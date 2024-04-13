@@ -26,13 +26,15 @@
 
     "content_scripts": [ {
       "js": ["scripts/contentMain.js"],
-      "matches": ["https://*.youtube.com/"],
-      "run_at": "document_end"
+      "matches": ["https://*.youtube.com/", "https://www.youtube.com/"]
     } ,
     {
       "js": ["scripts/contentWatch.js"],
-      "matches": ["https://*.youtube.com/watch"],
-      "run_at": "document_end"
+      "matches": ["https://*.youtube.com/watch*"]
+    } ,
+    {
+      "js": ["scripts/contentMain.js"],
+      "matches": ["https://*.youtube.com/?sttick=0"]
     }],
 
     "background": {
