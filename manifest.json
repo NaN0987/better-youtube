@@ -17,7 +17,7 @@
     "options_page": "options/options.html",
 
     "host_permissions": [
-      "https://*.youtube.com/*"
+      "https://*.youtube.com/*]"
     ],
 
     "permissions": [
@@ -25,9 +25,13 @@
     ],
 
     "content_scripts": [ {
-      "js": ["scripts/content.js"],
-      "matches": ["https://*.youtube.com/*"]
-    } ],
+      "js": ["scripts/contentMain.js"],
+      "matches": ["https://*.youtube.com/"]
+    } ,
+    {
+      "js": ["scripts/contentWatch.js"],
+      "matches": ["https://*.youtube.com/watch"]
+    }],
 
     "background": {
       "service_worker": "scripts/service_worker.js"
