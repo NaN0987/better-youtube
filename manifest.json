@@ -26,17 +26,17 @@
 
     "content_scripts": [ {
       "js": ["scripts/contentMain.js"],
-      "matches": ["https://www.youtube.com/", "https://*.youtube.com/?sttick=0"],
-      "persistAcrossSessions": false
+      "matches": ["https://www.youtube.com/", "https://*.youtube.com/?sttick=0"]
     } ,
     {
       "js": ["scripts/contentWatch.js"],
-      "matches": ["https://*.youtube.com/*"]
+      "matches": ["https://*.youtube.com/watch*"],
+      "run_at":"document_end"
     },
     {
-    "js": ["scripts/contentShorts.js"],
-    "matches": ["https://*.youtube.com/shorts/*"],
-    "run_at": "document_start"
+      "js": ["scripts/contentShorts.js"],
+      "matches": ["https://*.youtube.com/shorts/*"],
+      "run_at": "document_start"
     }
   ],
 
