@@ -26,16 +26,19 @@
 
     "content_scripts": [ {
       "js": ["scripts/contentMain.js"],
-      "matches": ["https://*.youtube.com/", "https://www.youtube.com/"]
+      "matches": ["https://www.youtube.com/", "https://*.youtube.com/?sttick=0"],
+      "persistAcrossSessions": false
     } ,
     {
       "js": ["scripts/contentWatch.js"],
-      "matches": ["https://*.youtube.com/watch*"]
-    } ,
+      "matches": ["https://*.youtube.com/*"]
+    },
     {
-      "js": ["scripts/contentMain.js"],
-      "matches": ["https://*.youtube.com/?sttick=0"]
-    }],
+    "js": ["scripts/contentShorts.js"],
+    "matches": ["https://*.youtube.com/shorts/*"],
+    "run_at": "document_start"
+    }
+  ],
 
     "background": {
       "service_worker": "scripts/service_worker.js"
