@@ -26,11 +26,11 @@
 
     "content_scripts": [ {
       "js": ["scripts/contentMain.js"],
-      "matches": ["https://www.youtube.com/", "https://*.youtube.com/?sttick=0"]
+      "matches": ["https://*.youtube.com/*"]
     } ,
     {
       "js": ["scripts/contentWatch.js"],
-      "matches": ["https://*.youtube.com/watch*"],
+      "matches": ["https://*.youtube.com/*"],
       "run_at":"document_end"
     },
     {

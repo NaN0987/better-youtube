@@ -4,7 +4,7 @@ console.log("youtube extension: watch")
 //if the website changes and we have to chanage the queryselectors, these constants should make that easier
 const qs_progressBar = "#movie_player > div.ytp-chrome-bottom > div.ytp-progress-bar-container > div.ytp-progress-bar > div.ytp-scrubber-container > div"
 const qs_videoPlayer = "#movie_player > div.html5-video-container > video"
-const qs_skipAdButton = "span.ytp-ad-skip-button-container"
+const qs_skipAdButton = "button.ytp-ad-skip-button-modern"
 
 //Remove query strings (?) and fragment identifier (#)
 //Returns string
