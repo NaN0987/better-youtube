@@ -6,14 +6,16 @@ async function main(){
   for(const option in settings){
     const settingElement = document.querySelector("#" + option)
 
-    if(settingElement.nodeName === "INPUT"){
-      settingElement.checked = settings[option]
-    }
-    else if(settingElement.nodeName === "SELECT"){
-      settingElement.value = settings[option]
-    }
-    else{
-      console.warn("Node name not detected: ", settingElement.nodeName)
+    if(settingElement){
+      if(settingElement.nodeName === "INPUT"){
+        settingElement.checked = settings[option]
+      }
+      else if(settingElement.nodeName === "SELECT"){
+        settingElement.value = settings[option]
+      }
+      else{
+        console.warn("Node name not detected: ", settingElement.nodeName)
+      }
     }
   }
 

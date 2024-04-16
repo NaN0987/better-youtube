@@ -32,31 +32,33 @@ chrome.storage.local.get(null, (settings) => {
   const observer = new MutationObserver(function() {
     //console.log("mutation detected")
 
-    // Try to select the progress bar
-    const progressBar = document.querySelector(qs_progressBar);
-  
-    if(progressBar){
+    if(settings.skipAds){
+      // Try to select the progress bar
+      const progressBar = document.querySelector(qs_progressBar);
+    
+      if(progressBar){
 
-      const progressBarStyle = window.getComputedStyle(progressBar)
+        const progressBarStyle = window.getComputedStyle(progressBar)
 
-      // If the progress bar is yellow (ad)
-      if(progressBarStyle.backgroundColor === "rgb(255, 204, 0)"){
+        // If the progress bar is yellow (ad)
+        if(progressBarStyle.backgroundColor === "rgb(255, 204, 0)"){
 
-        // Get the video
-        const video = document.querySelector(qs_videoPlayer)
+          // Get the video
+          const video = document.querySelector(qs_videoPlayer)
 
-        // End the ad
-        if((video.duration !== video.currentTime) && (!isNaN(video.duration))){
-          video.currentTime = video.duration
-          console.log("ad skipped")
+          // End the ad
+          if((video.duration !== video.currentTime) && (!isNaN(video.duration))){
+            video.currentTime = video.duration
+            console.log("ad skipped")
+          }
+
+          // Automatically click skip button
+          const skipButton = document.querySelector(qs_skipAdButton)
+          skipButton?.click()
+        
         }
 
-        // Automatically click skip button
-        const skipButton = document.querySelector(qs_skipAdButton)
-        skipButton?.click()
-      
       }
-
     }
       
   })

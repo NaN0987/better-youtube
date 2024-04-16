@@ -1,8 +1,9 @@
 
 //default settings
 const defaultSettings = {
-  setting1: "foo",
-  setting2: "bar"
+  skipAds: true,
+  filterSearch: true,
+  convertShorts: true
 }
 
 function convertVideo(string){
@@ -15,8 +16,6 @@ function convertVideo(string){
   console.log(newUrl); 
 
   chrome.tabs.update({url: newUrl});
-
-
 }
 
 async function setDefaultSettings(){
@@ -42,8 +41,6 @@ chrome.runtime.onInstalled.addListener(function(details){
     setDefaultSettings()
   }
 })
-
-
 
 //Sleeping function for testing
 function sleep(ms) {

@@ -1,9 +1,8 @@
 # Better Youtube
-Brief description about extension
+Better Youtube is a chrome extension designed to improve the experience of using Youtube. 
 
 ## Features
 - Ad blocker
-- Dark mode
 - Filter search
 - redirect shorts to video
 
