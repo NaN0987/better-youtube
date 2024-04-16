@@ -2,6 +2,13 @@
 <html>
     <head>
         <link rel="stylesheet" href="popup.css">
+        <link rel="stylesheet" href="../options/options.css">
+
+        <style>
+            .option h1{
+                font-size: 1em;
+            }
+        </style>
     </head>
 
     <body>
@@ -12,10 +19,44 @@
         <span class="version">Version x.x.x</span>
         
         <div class="linkFlex">
-            <a href id="settingsButton">Settings</a>
+            <a href id="settingsButton">Advanced Settings</a>
             <!-- insert github link below -->
             <a href="https://github.com/NaN0987/better-youtube" target="_blank">View Github Page</a>
         </div>
+
+        <div>
+            <p>Note: changes to these options will require you to reload Youtube before they take effect.</p>
+            
+            <div class="optionContainer">
+    
+                <div class="option">
+                    <h1>Automatically skip ads</h1>
+                    <label class="switch">
+                        <input type="checkbox" id="skipAds">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+    
+                <div class="option">
+                    <h1>Remove unrelated videos when searching</h1>
+                    <label class="switch">
+                        <input type="checkbox" id="filterSearch">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+    
+                <div class="option">
+                    <h1>Convert shorts into a video format</h1>
+                    <label class="switch">
+                        <input type="checkbox" id="convertShorts">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            
+        </div>
+        
+        <script src="../options/options.js"></script>
 
         <script src="popup.js"></script>
     </body>
