@@ -25,7 +25,7 @@ body {
 }
 
 .version {
-    color: gray;
+    color: rgb(185, 185, 185);
     font-size: 17px;
 }
 
@@ -35,4 +35,35 @@ body {
     justify-content: space-between;
 
     margin-top: 25px;
+}
+
+.link p {
+    color: rgb(255, 255, 255); /* Change font color to dark gray (#333) */
+}
+
+.link {
+    display: inline-block; /* Ensures proper rendering for border-radius */
+    flex: 5px; /* Assuming you're using this in a flex container, adjust if necessary */
+    margin: 5px;
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    border-radius: 10px; /* Adjust as needed for desired roundness */
+    border-color: rgb(194, 194, 194);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    padding-right: 5px;
+    padding-left: 5px;
+    border: 3px solid rgb(194, 194, 194); /* Add a 1px solid border with light gray color */
+  }
+  
+/* Style when hovering over the anchor */
+.link:hover {
+    border:3px solid rgb(156, 156, 156); /* Add a 1px solid border with light gray color */
+
+}
+  
+/* Style when anchor is active (clicked) */
+.link:active {
+    border: 3px solid rgb(194, 194, 194); /* Add a 1px solid border with light gray color */
+
 }

@@ -1,5 +1,5 @@
-# Better Youtube
-Better Youtube is a chrome extension designed to improve the experience of using Youtube. 
+# Better YouTube
+Better YouTube is a chrome extension designed to improve the experience of using YouTube. 
 
 ## Features
 - Ad blocker

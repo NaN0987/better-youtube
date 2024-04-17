@@ -31,13 +31,17 @@
     } ,
     {
       "js": ["scripts/contentWatch.js"],
-      "matches": ["https://*.youtube.com/*"],
-      "run_at":"document_end"
+      "matches": ["https://*.youtube.com/*"]
     },
     {
       "js": ["scripts/contentShorts.js"],
       "matches": ["https://*.youtube.com/shorts/*"],
       "run_at": "document_start"
+    },
+    {
+      "js": ["scripts/contentSearch.js"],
+      "matches": ["https://*.youtube.com/*"],
+      "run_at": "document_end"
     }
   ],
 

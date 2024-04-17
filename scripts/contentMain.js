@@ -7,6 +7,7 @@ console.log("youtube extension: main")
 const observer = new MutationObserver(function() {
   if (reformatURL(document.URL) === "https://www.youtube.com/"){
     //console.log("Mutation detected")
+    
 
     // Select the element
     const elementToDelete = document.querySelectorAll('#rendering-content');
@@ -38,8 +39,8 @@ const observer = new MutationObserver(function() {
     if (elementToDelete) {
       // Remove the element from the DOM
       elementToDelete.forEach(function(element){
-        if(element.parentElement.parentElement.parentElement.parentElement.parentElement.style.display !== "none"){
-          element.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = "none"
+        if(getParent(5, element).style.display !== "none"){
+          getParent(5, element).style.display = "none"
           // Set the value of the CSS custom property directly on the document's root element
 
           //console.log("parent" + element.parentElement) //.setProperty("--ytd-rich-grid-posts-per-row", "2")
@@ -74,6 +75,14 @@ function reformatURL(url){
   } 
 
   return result
+}
+
+//get parent element automatically
+function getParent(parentNumber, element){
+  for (let i=0; i<=parentNumber; i++){
+    element = element.parentElement
+  }
+  return element
 }
 
 //wait until user settings are obtained
