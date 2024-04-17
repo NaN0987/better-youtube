@@ -1,5 +1,5 @@
 p {
-    color: gray;
+    color: rgb(171, 171, 171);
 }
 
 button {
@@ -24,6 +24,27 @@ select {
     border-width: 5px;
     border-color: rgb(236, 28, 36);
     border-radius: 20px;
+}
+
+.titleFlex {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -7px;
+}
+
+.titleFlex img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.titleFlex h1 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+
+    font-size: 2.6em;
+    white-space: nowrap;
+    height: 45px;
 }
 
 .optionContainer {

@@ -1,7 +1,5 @@
 console.log("youtube extension: watch")
 
-
-
 //querySelector constants
 //if the website changes and we have to chanage the queryselectors, these constants should make that easier
 const qs_progressBar = "#movie_player > div.ytp-chrome-bottom > div.ytp-progress-bar-container > div.ytp-progress-bar > div.ytp-scrubber-container > div"
@@ -11,9 +9,9 @@ const qs_adSelction = "#rendering-content > ytd-promoted-sparkles-web-renderer"
 const qs_adSelctionBanner = "#companion > top-banner-image-text-icon-buttoned-layout-view-model"
 const qs_youtubeShorts = "#contents > ytd-reel-shelf-renderer"
 const qs_dislikeButton = "#top-level-buttons-computed > segmented-like-dislike-button-view-model > yt-smartimation > div > div > dislike-button-view-model > toggle-button-view-model > button-view-model > button"
+
 // Regular expression to match the video ID
 const regex = /[?&]v=([^&]+)/;
-
 
 //Remove query strings (?) and fragment identifier (#)
 //Returns string
@@ -94,29 +92,30 @@ chrome.storage.local.get(null, (settings) => {
   // Check every time something changes in the body
   const observer = new MutationObserver(function() {
 
-    const dislikeButtonDocument = document.querySelector(qs_dislikeButton);
+    if(settings.showDislikes){
+      const dislikeButtonDocument = document.querySelector(qs_dislikeButton);
 
-    //checking if the dislike button exists but it does not have its counter
-    if (dislikeButtonDocument && (!dislikeButtonDocument.querySelector("div.yt-spec-button-shape-next__button-text-content"))) {
-      dislikeButtonDocument.style.setProperty("width", "80px");
-      dislikeButtonDocument.style.setProperty("gap", "3px");
-      dislikeButtonDocument.style.setProperty("overflow", "initial")
+      //checking if the dislike button exists but it does not have its counter
+      if (dislikeButtonDocument && (!dislikeButtonDocument.querySelector("div.yt-spec-button-shape-next__button-text-content"))) {
+        dislikeButtonDocument.style.setProperty("width", "80px");
+        dislikeButtonDocument.style.setProperty("gap", "3px");
+        dislikeButtonDocument.style.setProperty("overflow", "initial")
 
-      // Create a new div element
-      const dislikeCounter = document.createElement('div');
+        // Create a new div element
+        const dislikeCounter = document.createElement('div');
 
-      // Add the class to the div element
-      dislikeCounter.className = 'yt-spec-button-shape-next__button-text-content';
+        // Add the class to the div element
+        dislikeCounter.className = 'yt-spec-button-shape-next__button-text-content';
 
-      // Add counter container
-      dislikeButtonDocument.appendChild(dislikeCounter);
-    }
+        // Add counter container
+        dislikeButtonDocument.appendChild(dislikeCounter);
+      }
 
-    if(dislikeButtonDocument?.querySelector("div.yt-spec-button-shape-next__button-text-content")){
-      getDislikes(dislikeButtonDocument.querySelector("div.yt-spec-button-shape-next__button-text-content"))
+      if(dislikeButtonDocument?.querySelector("div.yt-spec-button-shape-next__button-text-content")){
+        getDislikes(dislikeButtonDocument.querySelector("div.yt-spec-button-shape-next__button-text-content"))
+      }
     }
     
-    //console.log("mutation detected")
     const adSelctionDocument = document.querySelectorAll(qs_adSelction);
     const adSelctionBannerDocument = document.querySelectorAll(qs_adSelctionBanner);
     const youtubeShortsDocument = document.querySelectorAll(qs_youtubeShorts);

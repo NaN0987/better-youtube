@@ -6,27 +6,6 @@ console.log("youtube extension: search")
 const blacklistArray = ["People also watched", "For you", "Channels new to you", "Previously watched", "Popular today", "From related searches"]
 
 
-const observerTest = new MutationObserver(function() {
-  if (reformatURL(document.URL) === "https://www.youtube.com/results"){
-    //console.log("Mutation detected")
-
-    // Select the element
-    const elementToDelete = document.querySelectorAll("#title");
-    const adToDelete = document.querySelectorAll("#fulfilled-layout > ytd-in-feed-ad-layout-renderer")
-
-    deleteElements(adToDelete)
-
-    elementToDelete.forEach(function(element){
-      if(blacklistArray.includes(element.textContent)){
-        deleteElement(getParent(5, element))
-      }
-    })
-    
-  }
-})
-observerTest.observe(document.body, { childList: true, subtree: true });
-
-
 //Remove query strings (?) and fragment identifier (#)
 //Returns string
 function reformatURL(url){
@@ -81,5 +60,23 @@ function deleteElement(adSelection){
 
 //wait until user settings are obtained
 chrome.storage.local.get(null, (settings) => {
-
+  const observerTest = new MutationObserver(function() {
+    if ((reformatURL(document.URL) === "https://www.youtube.com/results") && (settings.filterSearch)){
+      //console.log("Mutation detected")
+  
+      // Select the element
+      const elementToDelete = document.querySelectorAll("#title");
+      const adToDelete = document.querySelectorAll("#fulfilled-layout > ytd-in-feed-ad-layout-renderer")
+  
+      deleteElements(adToDelete)
+  
+      elementToDelete.forEach(function(element){
+        if(blacklistArray.includes(element.textContent)){
+          deleteElement(getParent(5, element))
+        }
+      })
+      
+    }
+  })
+  observerTest.observe(document.body, { childList: true, subtree: true });
 })

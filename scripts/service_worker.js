@@ -3,6 +3,8 @@
 const defaultSettings = {
   skipAds: true,
   filterSearch: true,
+  filterHomePage: true,
+  showDislikes: true,
   convertShorts: true
 }
 
