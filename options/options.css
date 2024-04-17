@@ -68,6 +68,11 @@ select {
 
 .option:first-child {
     border-top-width: initial;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.option:last-child {
+    border-radius: 0px 0px 10px 10px;
 }
 
 .option h1 {

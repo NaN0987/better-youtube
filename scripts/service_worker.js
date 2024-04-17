@@ -1,4 +1,3 @@
-
 //default settings
 const defaultSettings = {
   skipAds: true,
@@ -8,6 +7,7 @@ const defaultSettings = {
   convertShorts: true
 }
 
+//Convert the current short to video format
 function convertVideo(string){
   // Extract the video ID from the URL
   let videoId = string.split("/").pop();
@@ -20,6 +20,7 @@ function convertVideo(string){
   chrome.tabs.update({url: newUrl});
 }
 
+// Function for setting default options when new options are added
 async function setDefaultSettings(){
   //await chrome.storage.local.clear()
   const settings = await chrome.storage.local.get(null)
@@ -49,6 +50,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+//Listener for recieving messages
 chrome.runtime.onMessage.addListener(function(message){
   console.log("message recieved!")
   

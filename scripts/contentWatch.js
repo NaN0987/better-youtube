@@ -46,6 +46,29 @@ function deleteElements(adSelection){
   }
 }
 
+// Takes a number and shortens it for the youtube dislike button
+// Returns string 
+function shortenNumber(number){
+
+  if (number >= 1000000) {
+    number /= 1000000
+    return Math.floor(number) + "M"
+  }
+  else if (number >= 1000) {
+    number /= 1000
+    return Math.floor(number) + "K"
+  }
+  else {
+    return number + ""
+  }
+}
+
+// Checks if the user has disliked the current video
+function isDisliked(){
+  return document.querySelector(qs_dislikeButton).getAttribute('aria-pressed') === 'true';
+}
+
+//Gets the dislike data using the API if it is not already cached
 function getDislikes(dislikeCounter){
   // Execute the regular expression on the URL
   const match = document.URL.match(regex);
@@ -70,18 +93,20 @@ function getDislikes(dislikeCounter){
         // Process the retrieved user data
         console.log('Dislikes:', userData.dislikes);
         currentDislike.dislikeCount = userData.dislikes
-        dislikeCounter.textContent = userData.dislikes
+
+        dislikeCounter.textContent = isDisliked() ? shortenNumber(userData.dislikes + 1) : shortenNumber(userData.dislikes);
       })
       .catch(error => {
         console.error('Error:', error);
       });
   }
   else {
-    dislikeCounter.textContent = currentDislike.dislikeCount
+    dislikeCounter.textContent = isDisliked() ? shortenNumber(currentDislike.dislikeCount+1) : shortenNumber(currentDislike.dislikeCount)
   }
   
 }
 
+//Cache the current video ID and dislike data
 let currentDislike = {
   videoID: "2FJxjVedpq0&t=7s",
   dislikeCount: 0
@@ -97,7 +122,7 @@ chrome.storage.local.get(null, (settings) => {
 
       //checking if the dislike button exists but it does not have its counter
       if (dislikeButtonDocument && (!dislikeButtonDocument.querySelector("div.yt-spec-button-shape-next__button-text-content"))) {
-        dislikeButtonDocument.style.setProperty("width", "80px");
+        dislikeButtonDocument.style.setProperty("width", "100px");
         dislikeButtonDocument.style.setProperty("gap", "3px");
         dislikeButtonDocument.style.setProperty("overflow", "initial")
 
@@ -138,7 +163,7 @@ chrome.storage.local.get(null, (settings) => {
           // Get the video
           const video = document.querySelector(qs_videoPlayer)
 
-          // End the ad
+          // Skip the ad
           if((video.duration !== video.currentTime) && (!isNaN(video.duration))){
             video.currentTime = video.duration
             console.log("ad skipped")

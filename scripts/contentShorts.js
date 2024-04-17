@@ -1,9 +1,5 @@
 console.log("youtube extension shorts is running")
 
-//querySelector constants
-//if the website changes and we have to chanage the queryselectors, these constants should make that easier
-
-
 //Remove query strings (?) and fragment identifier (#)
 //Returns string
 function reformatURL(url){
@@ -28,6 +24,7 @@ function reformatURL(url){
 chrome.storage.local.get(null, (settings) => {
 
   if(settings.convertShorts){
+    // Redirect user to video form
     chrome.runtime.sendMessage({
       action: "convertVideo", 
       details: 
