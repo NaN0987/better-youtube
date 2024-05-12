@@ -67,13 +67,13 @@ chrome.storage.local.get(null, (settings) => {
       }
       //Removes any characters that go over the maxTitleLength index in a title string
       //This makes it so videos will stay at a consistent size
-      if (elementToChange2) {
-        elementToChange2.forEach(function(element){
-          if (element.textContent.length > maxTitleLength){
-            element.textContent = element.textContent.substring(0, maxTitleLength) + "...";
-          }
-        });
-    }
+    //   if (elementToChange2) {
+    //     elementToChange2.forEach(function(element){
+    //       if (element.textContent.length > maxTitleLength){
+    //         element.textContent = element.textContent.substring(0, maxTitleLength) + "...";
+    //       }
+    //     });
+    // }
 
       if (elementToDelete3) {
         // Remove the element from the DOM

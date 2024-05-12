@@ -37,7 +37,7 @@ function addProgressBar(){
   if (shortsPlayer) {
     // Insert HTML content into each element
     shortsPlayer.forEach(function(element){
-      element.insertAdjacentHTML('beforeend', "<div class=\"youtube-shorts-rewind-container\" style=\"width: 100%; height: 10px; z-index: 500; pointer-events: auto; background-color: rgb(255, 155, 155); position: absolute; left: 0px; right: 0px; top: 815px; transition: height 100ms ease 0s;\"><div class=\"youtube-shorts-rewind-container__inner\" style=\"background-color: rgb(255, 0, 0); z-index: 500; pointer-events: auto; position: absolute; left: 0px; top: 0px; bottom: 0px; width: 89.0312px;\"></div></div>");
+      element.insertAdjacentHTML('beforeend', "<div class=\"youtube-shorts-rewind-container\" style=\"width: 100%; height: 10px; z-index: 500; pointer-events: auto; background-color: rgb(255, 155, 155); position: absolute; left: 0px; right: 0px; top: 845px; transition: height 100ms ease 0s;\"><div class=\"youtube-shorts-rewind-container__inner\" style=\"background-color: rgb(255, 0, 0); z-index: 500; pointer-events: auto; position: absolute; left: 0px; top: 0px; bottom: 0px; width: 89.0312px;\"></div></div>");
       const newProgressBar = element.querySelector(qs_newProgressBar);
       newProgressBar.addEventListener("click", trackMouseMovement)
     });
