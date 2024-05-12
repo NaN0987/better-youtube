@@ -4,7 +4,8 @@ const defaultSettings = {
   filterSearch: true,
   filterHomePage: true,
   showDislikes: true,
-  convertShorts: true
+  convertShorts: true,
+  agressiveAdBlocking: true
 }
 
 //Convert the current short to video format

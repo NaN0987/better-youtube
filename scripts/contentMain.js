@@ -94,8 +94,9 @@ chrome.storage.local.get(null, (settings) => {
           }
         });
       }
-  
-      if (elementToDelete) {
+      
+      //
+      if (elementToDelete && (settings.agressiveAdBlocking)) {
         // Remove the element from the DOM
         elementToDelete.forEach(function(element){
           if(getParent(4, element).style.display !== "none"){
@@ -103,8 +104,13 @@ chrome.storage.local.get(null, (settings) => {
           }
         });
       }
-      else{
-        console.log("ELEMENT DOES NOT EXIST")
+      else if (elementToDelete && (!settings.agressiveAdBlocking)) {
+        // Remove the element from the DOM
+        elementToDelete.forEach(function(element){
+          if(getParent(2, element).style.display !== "none"){
+            getParent(2, element).style.display = "none"
+          }
+        });
       }
     }
   })

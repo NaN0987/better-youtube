@@ -6,6 +6,7 @@ const qs_progressBar = "#movie_player > div.ytp-chrome-bottom > div.ytp-progress
 const qs_videoPlayer = "#movie_player > div.html5-video-container > video"
 const qs_skipAdButton = "button.ytp-ad-skip-button-modern"
 const qs_adSelction = "#rendering-content > ytd-promoted-sparkles-web-renderer"
+const qs_bannerAd = "#header > ytd-engagement-panel-title-header-renderer"
 const qs_adSelctionBanner = "#companion > top-banner-image-text-icon-buttoned-layout-view-model"
 const qs_youtubeShorts = "#contents > ytd-reel-shelf-renderer"
 const qs_dislikeButton = "#top-level-buttons-computed > segmented-like-dislike-button-view-model > yt-smartimation > div > div > dislike-button-view-model > toggle-button-view-model > button-view-model > button"
@@ -144,10 +145,13 @@ chrome.storage.local.get(null, (settings) => {
     const adSelctionDocument = document.querySelectorAll(qs_adSelction);
     const adSelctionBannerDocument = document.querySelectorAll(qs_adSelctionBanner);
     const youtubeShortsDocument = document.querySelectorAll(qs_youtubeShorts);
+    const youtubeBannerAd = document.querySelectorAll(qs_bannerAds);
+
 
     deleteElements(adSelctionDocument)
     deleteElements(adSelctionBannerDocument)
     deleteElements(youtubeShortsDocument)
+    deleteElements(youtubeBannerAd)
     
     if(settings.skipAds){
       // Try to select the progress bar
