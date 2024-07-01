@@ -87,7 +87,7 @@ function getDislikes(dislikeCounter){
     fetch(apiUrl)
       .then(response => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          console.log('Issue getting dislike count: Network response was not ok. \nStatus: ' + response.statusText);
         }
         return response.json()
       })
@@ -99,7 +99,7 @@ function getDislikes(dislikeCounter){
         dislikeCounter.textContent = isDisliked() ? shortenNumber(userData.dislikes + 1) : shortenNumber(userData.dislikes);
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.log('Error getting response data as json:', error);
       });
   }
   else {
@@ -148,8 +148,6 @@ chrome.storage.local.get(null, (settings) => {
     const youtubeShortsDocument = document.querySelectorAll(qs_youtubeShorts);
     const youtubeBannerAd = document.querySelectorAll(qs_bannerAd);
     const recomendedAd = document.querySelectorAll(qs_recomendedAd);
-
-
 
     deleteElements(adSelctionDocument)
     deleteElements(adSelctionBannerDocument)
