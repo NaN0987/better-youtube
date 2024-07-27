@@ -156,6 +156,11 @@ chrome.storage.local.get(null, (settings) => {
     deleteElements(recomendedAd)
     
     if(settings.skipAds){
+
+      // Automatically click skip button
+      const skipButton = document.querySelector(qs_skipAdButton)
+      skipButton?.click()
+
       // Try to select the progress bar
       const progressBar = document.querySelector(qs_progressBar);
     
@@ -170,15 +175,10 @@ chrome.storage.local.get(null, (settings) => {
           const video = document.querySelector(qs_videoPlayer)
 
           // Skip the ad
-          if((video.duration !== video.currentTime) && (!isNaN(video.duration))){
+          if((video.duration !== video.currentTime) && (!isNaN(video.duration)) && (video.currentTime !== 0)){
             video.currentTime = video.duration
             console.log("ad skipped")
           }
-
-          // Automatically click skip button
-          const skipButton = document.querySelector(qs_skipAdButton)
-          skipButton?.click()
-        
         }
 
       }
