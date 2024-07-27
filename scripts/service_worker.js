@@ -10,11 +10,18 @@ const defaultSettings = {
 
 //Convert the current short to video format
 function convertVideo(string){
+  
+  // Divide url up by slashes
+  string = string.split("/")
+
   // Extract the video ID from the URL
-  let videoId = string.split("/").pop();
+  let videoId = string.pop();
+
+  // Remove "shorts"
+  string.pop()
 
   // Construct the new URL string with the "watch?v=" format
-  let newUrl = "https://www.youtube.com/watch?v=" + videoId;
+  let newUrl = string.join("") + "/watch?v=" + videoId;
 
   console.log(newUrl); 
 
@@ -67,6 +74,3 @@ chrome.runtime.onMessage.addListener(function(message){
   }
 
 })
-
-
-

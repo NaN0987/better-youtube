@@ -41,7 +41,7 @@ function getParent(parentNumber, element){
 //wait until user settings are obtained
 chrome.storage.local.get(null, (settings) => {
   const observer = new MutationObserver(function() {
-    if ((reformatURL(document.URL) === "https://www.youtube.com/") && (settings.filterHomePage)){
+    if (reformatURL(document.URL).endsWith(".youtube.com/") && (settings.filterHomePage)){
    
       // Select the element
       const elementToDelete = document.querySelectorAll(qs_ads);

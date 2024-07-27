@@ -61,7 +61,7 @@ function deleteElement(adSelection){
 //wait until user settings are obtained
 chrome.storage.local.get(null, (settings) => {
   const observerTest = new MutationObserver(function() {
-    if ((reformatURL(document.URL) === "https://www.youtube.com/results") && (settings.filterSearch)){
+    if (reformatURL(document.URL).endsWith(".youtube.com/results") && (settings.filterSearch)){
       //console.log("Mutation detected")
   
       // Select the element
