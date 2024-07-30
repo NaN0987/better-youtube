@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Better YouTube",
-    "description": "Improves the user experience of YouTube. This extension blocks ads, removes unrelated videos from the search feed, and converts shorts to videos.",
+    "description": "Improves the user experience of YouTube: blocks ads, removes unrelated content, converts shorts to videos.",
     "version": "1.0.0",
     "icons": { 
       "16": "images/icon-16.png",
